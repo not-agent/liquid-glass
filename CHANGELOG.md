@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.4
+
+- Reframe README around the framework-independent core with Astro as an adapter.
+- Add CDN and vanilla usage examples.
+- Add coding-agent-oriented implementation guidance.
+- Clarify the package origin: an Inspira UI Liquid Glass-like effect outside a
+  Nuxt/Vue component stack.
+
 ## 0.1.3
 
 - Replace the static README preview SVG with a runtime-captured scroll demo GIF.

@@ -1,0 +1,85 @@
+---
+interface Props {
+  id?: string;
+  as?: "div" | "nav" | "header" | "footer" | "section" | "aside";
+  ariaLabel?: string;
+  radius?: number;
+  border?: number;
+  lightness?: number;
+  blend?: string;
+  xChannel?: "R" | "G" | "B";
+  yChannel?: "R" | "G" | "B";
+  alpha?: number;
+  blur?: number;
+  rOffset?: number;
+  gOffset?: number;
+  bOffset?: number;
+  scale?: number;
+  frost?: number;
+  class?: string;
+  containerClass?: string;
+  style?: string;
+}
+
+const {
+  id = `instance-${crypto.randomUUID()}`,
+  as = "div",
+  ariaLabel,
+  radius = 16,
+  border = 0.07,
+  lightness = 50,
+  blend = "difference",
+  xChannel = "R",
+  yChannel = "B",
+  alpha = 0.93,
+  blur = 11,
+  rOffset = 0,
+  gOffset = 10,
+  bOffset = 20,
+  scale = -180,
+  frost = 0.05,
+  class: slotClass,
+  containerClass,
+  style,
+} = Astro.props as Props;
+
+const filterId = `liquid-glass-${id}`;
+const Element = as;
+const elementStyle = [
+  `--liquid-glass-frost:${frost}`,
+  `border-radius:${radius}px`,
+  style,
+]
+  .filter(Boolean)
+  .join(";");
+---
+
+<Element
+  class:list={["liquid-glass-effect", containerClass]}
+  aria-label={ariaLabel}
+  data-liquid-glass
+  data-filter-id={filterId}
+  data-radius={radius}
+  data-border={border}
+  data-lightness={lightness}
+  data-blend={blend}
+  data-x-channel={xChannel}
+  data-y-channel={yChannel}
+  data-alpha={alpha}
+  data-blur={blur}
+  data-r-offset={rOffset}
+  data-g-offset={gOffset}
+  data-b-offset={bOffset}
+  data-scale={scale}
+  style={elementStyle}
+>
+  <div class:list={["liquid-glass-slot", slotClass]}>
+    <slot />
+  </div>
+
+  <svg class="liquid-glass-filter" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id={filterId} color-interpolation-filters="sRGB"></filter>
+    </defs>
+  </svg>
+</Element>

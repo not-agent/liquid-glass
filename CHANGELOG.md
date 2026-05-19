@@ -1,11 +1,21 @@
 # Changelog
 
+## 0.1.5
+
+- Add type declarations for the `@taehalim/liquid-glass/styles.css` side-effect
+  import.
+- Verify README bundler, Astro adapter, and core API examples against a packed
+  tarball.
+
 ## 0.1.4
 
 - Reframe README around the framework-independent core with Astro as an adapter.
 - Add CDN and vanilla usage examples.
 - Add concise integration notes for human users and coding agents.
 - Clarify the difference between bundler and no-build usage.
+- Use an SSR-safe dynamic import in the bundler example.
+- Use CDN `@latest` URLs so the no-build example remains valid after release
+  bumps.
 - Clarify the package origin: an Inspira UI Liquid Glass-like effect outside a
   Nuxt/Vue component stack.
 

@@ -1,7 +1,7 @@
 {
   "name": "@taehalim/liquid-glass",
-  "version": "0.1.4",
-  "description": "Framework-independent Liquid Glass effect with an Astro adapter, using SVG displacement filters and backdrop-filter.",
+  "version": "0.1.5",
+  "description": "Liquid Glass effect using SVG displacement filters and backdrop-filter.",
   "type": "module",
   "license": "MIT",
   "author": "Taeha Lim",
@@ -50,7 +50,10 @@
       "default": "./dist/auto.js"
     },
     "./astro": "./dist/astro/LiquidGlass.astro",
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": {
+      "types": "./dist/styles.d.ts",
+      "default": "./dist/styles.css"
+    }
   },
   "peerDependencies": {
     "astro": ">=6.0.0"

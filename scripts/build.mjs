@@ -22,3 +22,4 @@ await run("tsc", ["-p", "tsconfig.json"]);
 await mkdir("dist/astro", { recursive: true });
 await cp("src/astro/LiquidGlass.astro", "dist/astro/LiquidGlass.astro");
 await cp("src/styles.css", "dist/styles.css");
+await cp("src/styles.d.ts", "dist/styles.d.ts");

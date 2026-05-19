@@ -51,7 +51,10 @@ similar.
 
 ```ts
 import "@taehalim/liquid-glass/styles.css";
-import "@taehalim/liquid-glass/auto";
+
+if (typeof window !== "undefined") {
+  import("@taehalim/liquid-glass/auto");
+}
 ```
 
 Use the `data-*` attributes from the options table when you need to tune the
@@ -64,7 +67,7 @@ Use this shape for plain HTML without npm, Vite, or another bundler.
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@taehalim/liquid-glass@0.1.4/dist/styles.css"
+  href="https://cdn.jsdelivr.net/npm/@taehalim/liquid-glass@latest/dist/styles.css"
 />
 
 <div
@@ -86,7 +89,7 @@ Use this shape for plain HTML without npm, Vite, or another bundler.
 </div>
 
 <script type="module">
-  import "https://esm.sh/@taehalim/liquid-glass@0.1.4/auto";
+  import "https://esm.sh/@taehalim/liquid-glass@latest/auto";
 </script>
 ```
 

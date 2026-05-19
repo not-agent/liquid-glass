@@ -3,6 +3,14 @@
 Liquid Glass effect for Astro and browser UI, using SVG displacement filters and
 `backdrop-filter`.
 
+![Liquid Glass preview](./assets/preview.svg)
+
+## Demo
+
+This package powers the liquid glass navigation and footer chrome on Omnic's
+landing page. The preview above shows the intended effect: background content is
+refracted through separate color channels, then softened by a frosted overlay.
+
 ## Install
 
 ```sh
@@ -56,6 +64,14 @@ import "@taehalim/liquid-glass/styles.css";
 
 The full SVG displacement backdrop effect is most reliable in Chromium-based
 browsers. Safari and Firefox use the CSS fallback defined in `styles.css`.
+
+## Development
+
+```sh
+npm install
+npm run build
+npm pack --dry-run
+```
 
 ## Publish
 

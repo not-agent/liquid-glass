@@ -1,6 +1,6 @@
 {
   "name": "@taehalim/liquid-glass",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Liquid Glass effect for Astro and browser UI, using SVG displacement filters and backdrop-filter.",
   "type": "module",
   "license": "MIT",
@@ -24,12 +24,16 @@
     "access": "public"
   },
   "files": [
+    "assets",
     "dist",
+    "CHANGELOG.md",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "prepack": "npm run build"
   },
   "sideEffects": [
@@ -58,6 +62,8 @@
     }
   },
   "devDependencies": {
+    "prettier": "3.8.3",
+    "prettier-plugin-astro": "0.14.1",
     "typescript": "6.0.3"
   }
 }

@@ -1,7 +1,6 @@
 # @taehalim/liquid-glass
 
-Framework-independent Liquid Glass effect using SVG displacement filters and
-`backdrop-filter`. The runtime is DOM-first, with a ready-to-use Astro adapter.
+Liquid Glass effect using SVG displacement filters and `backdrop-filter`.
 
 ![Liquid Glass scroll demo](https://raw.githubusercontent.com/not-agent/liquid-glass/main/assets/demo.gif)
 

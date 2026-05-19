@@ -1,33 +1,19 @@
 # @taehalim/liquid-glass
 
 Framework-independent Liquid Glass effect using SVG displacement filters and
-`backdrop-filter`. Includes a ready-to-use Astro adapter.
+`backdrop-filter`. The runtime is DOM-first, with a ready-to-use Astro adapter.
 
 ![Liquid Glass scroll demo](https://raw.githubusercontent.com/not-agent/liquid-glass/main/assets/demo.gif)
 
-I wanted the Inspira UI Liquid Glass effect, but needed it outside a Nuxt/Vue
-component stack, so this package exposes the effect as a small DOM runtime with
-framework adapters layered on top.
+Inspired by Inspira UI's Liquid Glass component, this package exists for
+projects that want a similar SVG-displacement effect outside a Nuxt/Vue
+component stack.
 
 ## Demo
 
 The demo above is captured from the package runtime. It shows the intended
 effect while content scrolls behind the glass: background text is refracted
 through separate color channels, then softened by a frosted overlay.
-
-## For Coding Agents
-
-If you are a coding agent adding this package to a project, treat the core effect
-as DOM/CSS infrastructure, not as decorative gradients.
-
-- Install `@taehalim/liquid-glass`.
-- Import `@taehalim/liquid-glass/styles.css` once near the app root.
-- Use `@taehalim/liquid-glass/auto` when the markup has `data-liquid-glass`.
-- Use `@taehalim/liquid-glass/astro` only inside Astro projects.
-- Preserve the SVG `<filter>` node, `data-filter-id`, and the
-  `.liquid-glass-effect`, `.liquid-glass-slot`, `.liquid-glass-filter` classes.
-- Do not fake the effect with rainbow background overlays. The color separation
-  should come from the displaced backdrop content.
 
 ## Install
 
@@ -39,30 +25,16 @@ npm install @taehalim/liquid-glass
 bun add @taehalim/liquid-glass
 ```
 
-## Vanilla / No Framework
+## Vanilla / Bundler
+
+Use this shape when your project has a bundler such as Vite, Astro, Next.js, or
+similar.
 
 ```html
-<link
-  rel="stylesheet"
-  href="/path/to/node_modules/@taehalim/liquid-glass/dist/styles.css"
-/>
-
 <div
   class="liquid-glass-effect"
   data-liquid-glass
   data-filter-id="liquid-glass-demo"
-  data-radius="24"
-  data-border="0.07"
-  data-lightness="50"
-  data-blend="difference"
-  data-x-channel="R"
-  data-y-channel="B"
-  data-alpha="0.93"
-  data-blur="11"
-  data-r-offset="0"
-  data-g-offset="10"
-  data-b-offset="20"
-  data-scale="-180"
   style="--liquid-glass-frost:0.32;border-radius:24px;"
 >
   <div class="liquid-glass-slot">Content</div>
@@ -76,19 +48,43 @@ bun add @taehalim/liquid-glass
     </defs>
   </svg>
 </div>
-
-<script type="module">
-  import "@taehalim/liquid-glass/auto";
-</script>
 ```
 
+```ts
+import "@taehalim/liquid-glass/styles.css";
+import "@taehalim/liquid-glass/auto";
+```
+
+Use the `data-*` attributes from the options table when you need to tune the
+displacement map.
+
 ## CDN / No Build
+
+Use this shape for plain HTML without npm, Vite, or another bundler.
 
 ```html
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@taehalim/liquid-glass@0.1.4/dist/styles.css"
 />
+
+<div
+  class="liquid-glass-effect"
+  data-liquid-glass
+  data-filter-id="liquid-glass-demo"
+  style="--liquid-glass-frost:0.32;border-radius:24px;"
+>
+  <div class="liquid-glass-slot">Content</div>
+
+  <svg class="liquid-glass-filter" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter
+        id="liquid-glass-demo"
+        color-interpolation-filters="sRGB"
+      ></filter>
+    </defs>
+  </svg>
+</div>
 
 <script type="module">
   import "https://esm.sh/@taehalim/liquid-glass@0.1.4/auto";
@@ -126,7 +122,21 @@ if (element) {
 }
 ```
 
+## Integration Notes
+
+For both humans and coding agents, the effect has three required pieces:
+
+- the CSS classes from `styles.css`
+- a matching `data-filter-id` and SVG `<filter id="...">`
+- either `@taehalim/liquid-glass/auto` or a direct `mountLiquidGlass(...)` call
+
+The color separation should come from displaced backdrop content. Avoid replacing
+it with static rainbow overlays; that produces a different effect.
+
 ## Options
+
+The numeric effect options map to `data-*` attributes in vanilla markup. `as`,
+`class`, and `containerClass` are Astro adapter props.
 
 | Prop             | Type                                                             | Default        |
 | ---------------- | ---------------------------------------------------------------- | -------------- |

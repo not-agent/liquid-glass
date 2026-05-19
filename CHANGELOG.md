@@ -4,7 +4,8 @@
 
 - Reframe README around the framework-independent core with Astro as an adapter.
 - Add CDN and vanilla usage examples.
-- Add coding-agent-oriented implementation guidance.
+- Add concise integration notes for human users and coding agents.
+- Clarify the difference between bundler and no-build usage.
 - Clarify the package origin: an Inspira UI Liquid Glass-like effect outside a
   Nuxt/Vue component stack.
 

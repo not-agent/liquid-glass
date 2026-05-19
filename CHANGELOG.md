@@ -1,10 +1,14 @@
 # Changelog
 
+## 0.1.3
+
+- Replace the static README preview SVG with a runtime-captured scroll demo GIF.
+- Reference the GIF from GitHub so the npm package tarball stays small.
+
 ## 0.1.2
 
 - Add README preview artwork for npm and GitHub.
 - Add changelog for release history.
-- Include package assets in published tarballs.
 
 ## 0.1.1
 

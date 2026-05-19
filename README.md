@@ -3,13 +3,13 @@
 Liquid Glass effect for Astro and browser UI, using SVG displacement filters and
 `backdrop-filter`.
 
-![Liquid Glass preview](./assets/preview.svg)
+![Liquid Glass scroll demo](https://raw.githubusercontent.com/not-agent/liquid-glass/main/assets/demo.gif)
 
 ## Demo
 
-This package powers the liquid glass navigation and footer chrome on Omnic's
-landing page. The preview above shows the intended effect: background content is
-refracted through separate color channels, then softened by a frosted overlay.
+The demo above is captured from the package runtime. It shows the intended
+effect while content scrolls behind the glass: background text is refracted
+through separate color channels, then softened by a frosted overlay.
 
 ## Install
 
@@ -76,6 +76,6 @@ npm pack --dry-run
 ## Publish
 
 ```sh
-bun run build
+npm run build
 npm publish --access public
 ```
